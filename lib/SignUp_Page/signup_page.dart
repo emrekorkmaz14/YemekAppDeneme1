@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:yemekapp/First_Page/first_page.dart';
@@ -14,6 +15,9 @@ bool isChecked = false;
 bool isChecked2 = false;
 
 class _SignupPageState extends State<SignupPage> {
+  late final myController = TextEditingController();
+  final myController1 = TextEditingController();
+  final myController2 = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -47,13 +51,16 @@ class _SignupPageState extends State<SignupPage> {
                       color: Colors.black, fontWeight: FontWeight.w800),
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-                const TextField1(
+                TextField1(
+                  controller: myController2,
                   htext: "Kullanıcı Adı",
                 ),
-                const TextField1(
+                TextField1(
+                  controller: myController,
                   htext: "E-posta",
                 ),
-                const TextField1(
+                TextField1(
+                  controller: myController1,
                   htext: "Şifre",
                   icon: Icon(Icons.visibility),
                 ),
@@ -102,6 +109,12 @@ class _SignupPageState extends State<SignupPage> {
                     ),
                     TextButton(
                       onPressed: () {
+                        if (myController.text != null &&
+                            myController1.text != null) {
+                          FirebaseAuth.instance.createUserWithEmailAndPassword(
+                              email: myController.text,
+                              password: myController1.text);
+                        }
                         Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -131,10 +144,12 @@ class TextField1 extends StatelessWidget {
     this.text,
     this.htext,
     this.icon,
+    required this.controller,
   }) : super(key: key);
   final String? text;
   final String? htext;
   final Icon? icon;
+  final TextEditingController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -145,6 +160,7 @@ class TextField1 extends StatelessWidget {
               horizontal: MediaQuery.of(context).size.width * 0.01,
               vertical: MediaQuery.of(context).size.width * 0.03),
           child: TextField(
+            controller: controller,
             cursorColor: Colors.black,
             decoration: InputDecoration(
               border: const UnderlineInputBorder(),

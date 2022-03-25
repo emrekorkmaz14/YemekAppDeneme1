@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:yemekapp/Categories_Page/categories_page.dart';
 import 'package:yemekapp/First_Page/first_page.dart';
+import 'package:yemekapp/Home_Page/home_page.dart';
+import 'package:yemekapp/Profile_Page/profile_page.dart';
 
 
 void main() {
@@ -18,7 +21,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: FirstPage(),
+      home: ProfilePage(),
     );
   }
 }

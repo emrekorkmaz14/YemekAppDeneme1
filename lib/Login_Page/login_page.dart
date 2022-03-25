@@ -19,12 +19,12 @@ class _LoginPageState extends State<LoginPage> {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.white,
-          foregroundColor: Colors.amber.shade600,
+          foregroundColor: Colors.redAccent,
           centerTitle: true,
           title: Text(
             "ÜYE GİRİŞİ",
             style: GoogleFonts.roboto(
-                color: Colors.amber.shade800, fontWeight: FontWeight.w800),
+                color: Colors.redAccent, fontWeight: FontWeight.w800),
           ),
         ),
         body: Padding(
@@ -75,7 +75,7 @@ class _LoginPageState extends State<LoginPage> {
                         child: Text(
                           "Parolamı unuttum",
                           style: GoogleFonts.roboto(
-                              color: Colors.amber.shade600,
+                              color: Colors.redAccent,
                               fontWeight: FontWeight.bold),
                         ),
                       ),
@@ -83,7 +83,7 @@ class _LoginPageState extends State<LoginPage> {
                   ],
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.03),
-                LoginButtonLong(text: "GİRİŞ YAP", color: Colors.amber.shade600)
+                LoginButtonLong(text: "GİRİŞ YAP", color: Colors.redAccent)
               ],
             ),
           ),
