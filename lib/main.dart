@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yemekapp/First_Page/first_page.dart';
-import 'package:yemekapp/Login_Page/login_page.dart';
-import 'package:yemekapp/SignUp_Page/signup_page.dart';
+
 
 void main() {
   runApp(const MyApp());
